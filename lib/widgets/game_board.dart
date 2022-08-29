@@ -15,23 +15,34 @@ class _GameBoardState extends State<GameBoard> {
   Widget build(BuildContext context) {
     return Column(
       children: widget.game.wordleBoard
-      .map((e) => Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-
-        children: e
-        .map((e) => Container(
-          padding: EdgeInsets.all(16),
-          width: 64,
-          height: 64,
-          margin: EdgeInsets.symmetric(vertical: 8),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            
-          ),
-
-        )).toList()
-        )).toList()
+          .map((e) => Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: e
+                    .map((e) => Container(
+                          padding: EdgeInsets.all(16),
+                          width: 56,
+                          height: 56,
+                          margin: EdgeInsets.symmetric(vertical: 6),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color: e.code == 0
+                            ? Color.fromARGB(255, 82, 82, 82)
+                            : e.code ==1
+                            ? Colors.green
+                            :Color.fromARGB(255, 209, 166, 72),
+                          ),
+                          child: Center(
+                            child: Text(e.letter!, 
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                              ),),
+                          ),
+                        ),)
+                    .toList(),
+              ))
+          .toList(),
     );
-    
   }
 }

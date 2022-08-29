@@ -37,7 +37,7 @@ class _GameScreenState extends State<GameScreen> {
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 20.0),
+          const SizedBox(height: 0.0),
           GameKeyboard(_game)
         ],
       ),
